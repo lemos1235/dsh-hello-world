@@ -1,0 +1,5 @@
+# Inserts the Hello world demo plugin into the current profile.
+# Host row: a no-op Host half; the Client module owns the sidebar entry and panel.
+- insert:
+    - id: hello-world-panel
+      name: '@local/dsh-hello-world'

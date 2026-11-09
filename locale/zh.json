@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Hello world 示例",
+    "description": "在左侧栏增加一个入口，点击后于主面板打开 Hello world 示例页面。"
+  }
+}

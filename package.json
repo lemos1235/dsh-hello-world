@@ -1,0 +1,58 @@
+{
+  "name": "@local/dsh-hello-world",
+  "version": "0.2.0",
+  "description": "Hello world demo plugin for DeepSeek Harness: one sidebar entry that opens a TypeScript-built Hello world panel.",
+  "type": "module",
+  "license": "MIT",
+  "private": true,
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "dsh-plugin",
+    "hello-world",
+    "demo"
+  ],
+  "main": "lib/index.mjs",
+  "exports": {
+    ".": {
+      "default": "./lib/index.mjs"
+    },
+    "./client": "./client.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "client.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg"
+  ],
+  "scripts": {
+    "build": "tsdown --config ./tsdown.config.ts",
+    "typecheck": "tsc --noEmit",
+    "prepare": "npm run build"
+  },
+  "dsh": {
+    "engines": {
+      "dsh": ">=0.2.2-rc.1"
+    },
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-locale"
+      ]
+    }
+  },
+  "devDependencies": {
+    "@types/react": "^19.3.0",
+    "tsdown": "^0.22.14",
+    "typescript": "^7.0.2"
+  }
+}
